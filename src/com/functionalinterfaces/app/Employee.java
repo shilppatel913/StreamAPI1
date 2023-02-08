@@ -1,6 +1,6 @@
 package com.functionalinterfaces.app;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
 	private int id;
 	private String name;
@@ -41,9 +41,18 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + "]";
+		return "Employee [name=" + name + ", salary=" + salary + "]";
+	}
+	@Override
+	public int compareTo(Employee o) {
+	
+		if(this.salary<o.getSalary()) return 1;
+		else if(this.salary>o.getSalary()) return -1;
+		else return 0;
+		
 	}
 	
 	
